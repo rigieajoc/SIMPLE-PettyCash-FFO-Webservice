@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="VB" CodeBehind="FFOPettyCashWS.asmx.vb" Class="FFOPettyCashWS.Service1" %>
