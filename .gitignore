@@ -14,3 +14,4 @@ packages/
 *.vs
 *.ini
 FFOPettyCashWS/Web.config
+*.suo
