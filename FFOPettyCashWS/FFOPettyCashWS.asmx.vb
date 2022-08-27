@@ -24,11 +24,11 @@ Public Class Service1
 
 
         CPostFundReleased = 21
-        CPostFundLiquidation = 22
+        'CPostFundLiquidation = 22
         CPostExpenseType = 23
         CPostVendor = 24
-        CPostExpenseReport = 25
-        CPostFundReleasedCashTransfer = 26
+        CPostExpenseLiquidation = 25
+        'CPostFundReleasedCashTransfer = 26
     End Enum
     Enum ResponseCode
         success = 200
