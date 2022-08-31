@@ -20,15 +20,20 @@ Public Class clsData
 
 #Region "Method - Query - Upload"
     Public Shared Function UploadFundReleased(ByVal employeeid As Integer, ByVal dt As DataTable) As String
-        Dim str_par() As String = {"operation", "soperation", "employeeid", "fundreleased"}
+        Dim str_par() As String = {"operation", "soperation", "employeeid", "cashflow"}
         Dim str_val() As Object = {1, 0, employeeid, dt}
         Return clsSP.SP_Transact_Query("spFFOSyncPC", str_par, str_val, True)
     End Function
-    Public Shared Function UploadFundLiquidation(ByVal employeeid As Integer, ByVal dt As DataTable) As String
-        Dim str_par() As String = {"operation", "soperation", "employeeid", "fundliquidation"}
+    Public Shared Function UploadExpenseLiquidation(ByVal employeeid As Integer, ByVal dt As DataTable) As String
+        Dim str_par() As String = {"operation", "soperation", "employeeid", "cashdisbursement"}
         Dim str_val() As Object = {1, 1, employeeid, dt}
         Return clsSP.SP_Transact_Query("spFFOSyncPC", str_par, str_val, True)
     End Function
+    'Public Shared Function UploadFundLiquidation(ByVal employeeid As Integer, ByVal dt As DataTable) As String
+    '    Dim str_par() As String = {"operation", "soperation", "employeeid", "fundliquidation"}
+    '    Dim str_val() As Object = {1, 1, employeeid, dt}
+    '    Return clsSP.SP_Transact_Query("spFFOSyncPC", str_par, str_val, True)
+    'End Function
     Public Shared Function UploadVendor(ByVal employeeid As Integer, ByVal dt As DataTable) As String
         Dim str_par() As String = {"operation", "soperation", "employeeid", "vendor"}
         Dim str_val() As Object = {1, 2, employeeid, dt}
@@ -39,16 +44,11 @@ Public Class clsData
         Dim str_val() As Object = {1, 3, employeeid, dt}
         Return clsSP.SP_Transact_Query("spFFOSyncPC", str_par, str_val, True)
     End Function
-    Public Shared Function UploadExpenseReport(ByVal employeeid As Integer, ByVal dt As DataTable) As String
-        Dim str_par() As String = {"operation", "soperation", "employeeid", "cashdisbursement"}
-        Dim str_val() As Object = {1, 4, employeeid, dt}
-        Return clsSP.SP_Transact_Query("spFFOSyncPC", str_par, str_val, True)
-    End Function
-    Public Shared Function UploadFundReleasedCashTransfer(ByVal employeeid As Integer, ByVal dt As DataTable) As String
-        Dim str_par() As String = {"operation", "soperation", "employeeid", "cashflow"}
-        Dim str_val() As Object = {1, 5, employeeid, dt}
-        Return clsSP.SP_Transact_Query("spFFOSyncPC", str_par, str_val, True)
-    End Function
+    'Public Shared Function UploadFundReleasedCashTransfer(ByVal employeeid As Integer, ByVal dt As DataTable) As String
+    '    Dim str_par() As String = {"operation", "soperation", "employeeid", "cashflow"}
+    '    Dim str_val() As Object = {1, 5, employeeid, dt}
+    '    Return clsSP.SP_Transact_Query("spFFOSyncPC", str_par, str_val, True)
+    'End Function
 #End Region
 
 #Region "Method - Query - Others"
