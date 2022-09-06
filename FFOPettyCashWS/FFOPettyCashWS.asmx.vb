@@ -285,6 +285,7 @@ tonton:
                 dtnew.Columns.Add("ffo_frid", GetType(String))              '27
                 dtnew.Columns.Add("fundtypeid", GetType(Long))              '28
                 dtnew.Columns.Add("ffo_requestid", GetType(String))         '29
+                dtnew.Columns.Add("ffo_receiptfilename", GetType(String))   '30
 
                 For i As Integer = 0 To dt.Rows.Count - 1
                     rw = dtnew.NewRow
@@ -318,6 +319,7 @@ tonton:
                     rw(27) = dt.Rows(i).Item("ffo_frid")
                     rw(28) = dt.Rows(i).Item("fundtypeid")
                     rw(29) = dt.Rows(i).Item("ffo_requestid")
+                    rw(30) = dt.Rows(i).Item("ffo_receiptfilename")
 
                     dtnew.Rows.Add(rw)
                 Next
