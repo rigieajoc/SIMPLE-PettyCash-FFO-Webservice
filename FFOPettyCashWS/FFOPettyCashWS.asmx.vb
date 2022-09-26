@@ -324,68 +324,6 @@ tonton:
                     dtnew.Rows.Add(rw)
                 Next
 
-                'ElseIf transtype = myTransactCode.CPostFundLiquidation Then 'post_fundliquidation
-                '    dtnew.Columns.Add("flid", GetType(Long))                '0
-                '    dtnew.Columns.Add("flno", GetType(Long))                '1
-                '    dtnew.Columns.Add("flno_ffo", GetType(Long))            '2
-                '    dtnew.Columns.Add("frid", GetType(Long))                '3
-                '    dtnew.Columns.Add("vendorid", GetType(Long))            '4
-                '    dtnew.Columns.Add("expenseid", GetType(Long))           '5
-                '    dtnew.Columns.Add("refno", GetType(String))             '6
-                '    dtnew.Columns.Add("refdate", GetType(DateTime))         '7
-                '    dtnew.Columns.Add("amount", GetType(Decimal))           '8
-                '    dtnew.Columns.Add("vat", GetType(Boolean))              '9
-                '    dtnew.Columns.Add("panelid", GetType(Long))             '10
-                '    dtnew.Columns.Add("remarks", GetType(String))           '11
-                '    dtnew.Columns.Add("status", GetType(Long))              '12
-                '    dtnew.Columns.Add("ffo_flid", GetType(String))          '13
-                '    dtnew.Columns.Add("ffo_frid", GetType(String))          '14
-                '    dtnew.Columns.Add("createdbyid", GetType(Long))         '15
-                '    dtnew.Columns.Add("datecreated", GetType(DateTime))     '16
-                '    dtnew.Columns.Add("updatedbyid", GetType(Long))         '17
-                '    dtnew.Columns.Add("dateupdated", GetType(DateTime))     '18
-                '    dtnew.Columns.Add("approvedbyid", GetType(Long))        '19
-                '    dtnew.Columns.Add("dateapproved", GetType(DateTime))    '20
-                '    dtnew.Columns.Add("syncstatus", GetType(Boolean))       '21
-                '    dtnew.Columns.Add("syncdate", GetType(DateTime))        '22
-                '    dtnew.Columns.Add("dlsyncstatus", GetType(Boolean))     '23
-                '    dtnew.Columns.Add("dlsyncdate", GetType(DateTime))      '24
-                '    dtnew.Columns.Add("mainsyncstatus", GetType(Boolean))   '25
-                '    dtnew.Columns.Add("mainsyncdate", GetType(DateTime))    '26
-
-                '    For i As Integer = 0 To dt.Rows.Count - 1
-                '        rw = dtnew.NewRow
-                '        rw(0) = 0
-                '        rw(1) = 0
-                '        rw(2) = 0
-                '        rw(3) = 0
-                '        rw(4) = dt.Rows(i).Item("vendorid")
-                '        rw(5) = dt.Rows(i).Item("expenseid")
-                '        rw(6) = dt.Rows(i).Item("refno")
-                '        rw(7) = dt.Rows(i).Item("refdate")
-                '        rw(8) = dt.Rows(i).Item("amount")
-                '        rw(9) = dt.Rows(i).Item("vat")
-                '        rw(10) = dt.Rows(i).Item("warehouseid")
-                '        rw(11) = dt.Rows(i).Item("remarks")
-                '        rw(12) = 0
-                '        rw(13) = dt.Rows(i).Item("ffo_flid")
-                '        rw(14) = dt.Rows(i).Item("ffo_frid")
-                '        rw(15) = dt.Rows(i).Item("createdbyid") 'createdbyid
-                '        rw(16) = dt.Rows(i).Item("dateencoded")
-                '        rw(17) = dt.Rows(i).Item("approvedbyid") 'updatedbyid
-                '        rw(18) = "1/1/1900"
-                '        rw(19) = dt.Rows(i).Item("approvedbyid")
-                '        rw(20) = dt.Rows(i).Item("dateencoded")
-                '        rw(21) = False
-                '        rw(22) = "1/1/1900"
-                '        rw(23) = False
-                '        rw(24) = "1/1/1900"
-                '        rw(25) = False
-                '        rw(26) = "1/1/1900"
-
-                '        dtnew.Rows.Add(rw)
-                '    Next
-
             ElseIf transtype = myTransactCode.CPostVendor Then  'post_vendor
                 dtnew.Columns.Add("vendorid", GetType(Long))            '0
                 dtnew.Columns.Add("vendorname", GetType(String))        '1
@@ -459,6 +397,7 @@ tonton:
                 dtnew.Columns.Add("mainsyncdate", GetType(DateTime))    '15
                 dtnew.Columns.Add("eno", GetType(Long))                 '16
                 dtnew.Columns.Add("eno_ffo", GetType(Long))             '17
+                dtnew.Columns.Add("isviewonsfa", GetType(Boolean))      '18
 
                 For i As Integer = 0 To dt.Rows.Count - 1
                     rw = dtnew.NewRow
@@ -480,63 +419,11 @@ tonton:
                     rw(15) = "1/1/1900"
                     rw(16) = 0
                     rw(17) = 0
+                    rw(18) = True
 
                     dtnew.Rows.Add(rw)
                 Next
 
-                'ElseIf transtype = myTransactCode.CPostFundReleasedCashTransfer Then    'post_fundreleased_cashtransfer
-                '    dtnew.Columns.Add("cashinid", GetType(Long))                '0
-                '    dtnew.Columns.Add("transno", GetType(Long))                 '1
-                '    dtnew.Columns.Add("panelid", GetType(Long))                 '2
-                '    dtnew.Columns.Add("cashindate", GetType(DateTime))          '3
-                '    dtnew.Columns.Add("amount", GetType(Decimal))               '4
-                '    dtnew.Columns.Add("transtype", GetType(Long))               '5
-                '    dtnew.Columns.Add("comment", GetType(String))               '6
-                '    dtnew.Columns.Add("status", GetType(Long))                  '7
-                '    dtnew.Columns.Add("createdbyid", GetType(Long))             '8
-                '    dtnew.Columns.Add("datecreated", GetType(DateTime))         '9
-                '    dtnew.Columns.Add("approvedby", GetType(Long))              '10
-                '    dtnew.Columns.Add("dateapproved", GetType(DateTime))        '11
-                '    dtnew.Columns.Add("updatedby", GetType(Long))               '12
-                '    dtnew.Columns.Add("dateupdated", GetType(DateTime))         '13
-                '    dtnew.Columns.Add("syncstatus", GetType(Boolean))           '14
-                '    dtnew.Columns.Add("syncdate", GetType(DateTime))            '15
-                '    dtnew.Columns.Add("dlsyncstatus", GetType(Boolean))         '16
-                '    dtnew.Columns.Add("dlsyncdate", GetType(DateTime))          '17
-                '    dtnew.Columns.Add("mainsyncstatus", GetType(Boolean))       '18
-                '    dtnew.Columns.Add("mainsyncdate", GetType(DateTime))        '19
-                '    dtnew.Columns.Add("cino", GetType(Long))                    '20
-                '    dtnew.Columns.Add("cino_ffo", GetType(Long))                '21
-                '    dtnew.Columns.Add("ffo_fundreleasedid", GetType(String))    '22
-
-                '    For i As Integer = 0 To dt.Rows.Count - 1
-                '        rw = dtnew.NewRow
-                '        rw(0) = 0
-                '        rw(1) = 0
-                '        rw(2) = 0
-                '        rw(3) = dt.Rows(i).Item("dateencoded")
-                '        rw(4) = dt.Rows(i).Item("amount")
-                '        rw(5) = 0
-                '        rw(6) = dt.Rows(i).Item("remarks")
-                '        rw(7) = 0
-                '        rw(8) = 0
-                '        rw(9) = dt.Rows(i).Item("dateencoded")
-                '        rw(10) = 0
-                '        rw(11) = dt.Rows(i).Item("dateencoded")
-                '        rw(12) = 0
-                '        rw(13) = "1/1/1900"
-                '        rw(14) = False
-                '        rw(15) = "1/1/1900"
-                '        rw(16) = False
-                '        rw(17) = "1/1/1900"
-                '        rw(18) = False
-                '        rw(19) = "1/1/1900"
-                '        rw(20) = 0
-                '        rw(21) = 0
-                '        rw(22) = dt.Rows(i).Item("ffo_fundreleasedid")
-
-                '        dtnew.Rows.Add(rw)
-                '    Next
 
             End If
         Catch ex As Exception

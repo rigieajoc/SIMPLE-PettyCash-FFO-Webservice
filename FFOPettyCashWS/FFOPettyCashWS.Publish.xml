@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishProfile publishUrl="D:\Royette\SSTS\SFA\Released\FFOws\220818_test" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="FFOPCDeploy" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
-    <file relUrl="bin/FFOPettyCashWS.pdb" publishTime="08/08/2022 13:51:41" />
-    <file relUrl="bin/FFOPettyCashWS.xml" publishTime="08/08/2022 13:51:41" />
-    <file relUrl="Web.config" publishTime="08/18/2022 14:50:15" />
-    <file relUrl="FFOPettyCashWS.asmx" publishTime="02/17/2022 14:34:52" />
-    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="02/03/2016 16:01:40" />
-    <file relUrl="bin/FFOPettyCashWS.dll" publishTime="08/08/2022 13:51:41" />
+  <publishProfile publishUrl="F:\Tonton\SIMPLE_ECE_PettyCash_FFO_Web Service\Deploy WS\ffo_pc_webservice_20220922" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="FFOPCDeploy" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/FFOPettyCashWS.pdb" publishTime="09/22/2022 14:02:05" />
+    <file relUrl="bin/FFOPettyCashWS.xml" publishTime="09/22/2022 14:02:05" />
+    <file relUrl="Web.config" publishTime="09/22/2022 14:02:45" />
+    <file relUrl="FFOPettyCashWS.asmx" publishTime="08/16/2022 16:26:57" />
+    <file relUrl="bin/Newtonsoft.Json.dll" publishTime="08/27/2022 09:09:07" />
+    <file relUrl="bin/FFOPettyCashWS.dll" publishTime="09/22/2022 14:02:05" />
   </publishProfile>
 </publishData>
