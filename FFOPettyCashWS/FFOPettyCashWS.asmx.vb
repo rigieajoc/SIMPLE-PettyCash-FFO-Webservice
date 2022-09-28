@@ -351,13 +351,13 @@ tonton:
 
                 For i As Integer = 0 To dt.Rows.Count - 1
                     rw = dtnew.NewRow
-                    rw(0) = 0
+                    rw(0) = dt.Rows(i).Item("branchid") 'vendorid
                     rw(1) = dt.Rows(i).Item("vendorname").ToString.Trim
                     rw(2) = dt.Rows(i).Item("address")
                     rw(3) = dt.Rows(i).Item("telephone")
                     rw(4) = dt.Rows(i).Item("vatno")
                     rw(5) = False
-                    rw(6) = 0
+                    rw(6) = dt.Rows(i).Item("warehouseid")  'createdbyid
                     rw(7) = dt.Rows(i).Item("dateencoded")
                     rw(8) = 0
                     rw(9) = dt.Rows(i).Item("dateencoded")
