@@ -55,10 +55,14 @@ Public Class clsUtility
         Dim strlist() As String = Nothing
         Dim employeeid As Integer
         Dim submitteddatetime As DateTime
+        Dim searchstring As String = ""
         Dim errmsg As String = ""
         Try
             todescrypt = clsJCypher.StringCipher.Decrypt(rtoken, "")
             strlist = todescrypt.Split("|")
+            If (strlist.Length > 3) Then
+                searchstring = strlist(3)
+            End If
 
             If strlist.Length > 0 Then
                 Dim d As Date = Date.ParseExact(strlist(1), "ddMMyyyy", Nothing)
@@ -88,7 +92,7 @@ Public Class clsUtility
         End Try
 tonton:
 
-        Return New String() {employeeid, isValid, errmsg}
+        Return New String() {employeeid, isValid, errmsg, searchstring}
     End Function
     Private Shared Function VerifyEmployeeRequest(ByVal employeeid As Integer) As String
         Dim dt As New DataTable

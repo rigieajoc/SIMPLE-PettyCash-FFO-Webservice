@@ -21,6 +21,7 @@ Public Class Service1
         CGetVendorCategory = 16
         CGetHBItems = 17
         CGetOHBItems = 18
+        CGetVendorSearch = 19
 
 
         CPostFundReleased = 21
@@ -84,6 +85,8 @@ Public Class Service1
             r.mainStrVal.Add(employeeid)        '2
             r.mainStrPar.Add("branchid")        '3
             r.mainStrVal.Add(branchid)          '3
+            r.mainStrPar.Add("search")        '3
+            r.mainStrVal.Add(arr(3))
 
             dt = r.DownloadData
 
