@@ -26,10 +26,8 @@ Public Class Service1
 
         CPostFundReleased = 21
         CPostExpenseLiquidation = 22
-        'CPostFundLiquidation = 22
         CPostExpenseType = 23
         CPostVendor = 24
-        'CPostFundReleasedCashTransfer = 26
     End Enum
     Enum ResponseCode
         success = 200
@@ -85,8 +83,8 @@ Public Class Service1
             r.mainStrVal.Add(employeeid)        '2
             r.mainStrPar.Add("branchid")        '3
             r.mainStrVal.Add(branchid)          '3
-            r.mainStrPar.Add("search")        '3
-            r.mainStrVal.Add(arr(3))
+            r.mainStrPar.Add("search")          '4
+            r.mainStrVal.Add(arr(3))            '4
 
             dt = r.DownloadData
 
@@ -289,6 +287,7 @@ tonton:
                 dtnew.Columns.Add("fundtypeid", GetType(Long))              '28
                 dtnew.Columns.Add("ffo_requestid", GetType(String))         '29
                 dtnew.Columns.Add("ffo_receiptfilename", GetType(String))   '30
+                dtnew.Columns.Add("sourcecdid", GetType(Long))              '31
 
                 For i As Integer = 0 To dt.Rows.Count - 1
                     rw = dtnew.NewRow
@@ -323,6 +322,7 @@ tonton:
                     rw(28) = dt.Rows(i).Item("fundtypeid")
                     rw(29) = dt.Rows(i).Item("ffo_requestid")
                     rw(30) = dt.Rows(i).Item("ffo_receiptfilename")
+                    rw(31) = 0
 
                     dtnew.Rows.Add(rw)
                 Next
