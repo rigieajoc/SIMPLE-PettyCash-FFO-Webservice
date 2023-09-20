@@ -22,6 +22,7 @@ Public Class Service1
         CGetHBItems = 17
         CGetOHBItems = 18
         CGetVendorSearch = 19
+        CGetCustomerSearch = 110
 
 
         CPostFundReleased = 21
@@ -46,7 +47,7 @@ Public Class Service1
     End Function
 
     <WebMethod()> _
-    Public Function Download_Data(ByVal rtoken As String, ByVal code As myTransactCode, ByVal branchid As String) As String
+    Public Function Download_Data(ByVal rtoken As String, ByVal code As Integer, ByVal branchid As String) As String
         Dim dt As New DataTable
         Dim convertedvalue As String = ""
         Dim traceline As String = ""

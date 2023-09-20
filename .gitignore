@@ -14,4 +14,4 @@ packages/
 FFOPettyCashWS/Web.config
 *.suo
 **/bin/*
-!**/bin/*.dll
+!**/bin/Newtonsoft.Json.dll
