@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishProfile publishUrl="D:\Royette\SSTS\SFA\Released\FFOws\230330_test" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="FFOPCDeploy" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
-    <file relUrl="bin/FFOPettyCashWS.pdb" publishTime="03/13/2023 15:32:13" />
-    <file relUrl="bin/FFOPettyCashWS.xml" publishTime="03/13/2023 15:32:13" />
-    <file relUrl="Web.config" publishTime="03/30/2023 09:26:27" />
+  <publishProfile publishUrl="D:\Royette\SSTS\SFA\Released\FFOws\231214_test" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="FFOPCDeploy" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="bin/FFOPettyCashWS.pdb" publishTime="12/13/2023 15:13:58" />
+    <file relUrl="bin/FFOPettyCashWS.xml" publishTime="12/13/2023 15:13:58" />
+    <file relUrl="Web.config" publishTime="12/14/2023 11:33:09" />
     <file relUrl="FFOPettyCashWS.asmx" publishTime="02/17/2022 14:34:52" />
     <file relUrl="bin/Newtonsoft.Json.dll" publishTime="02/03/2016 16:01:40" />
-    <file relUrl="bin/FFOPettyCashWS.dll" publishTime="03/13/2023 15:32:13" />
+    <file relUrl="bin/FFOPettyCashWS.dll" publishTime="12/13/2023 15:13:58" />
   </publishProfile>
 </publishData>

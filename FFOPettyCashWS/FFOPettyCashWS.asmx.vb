@@ -289,6 +289,8 @@ tonton:
                 dtnew.Columns.Add("ffo_requestid", GetType(String))         '29
                 dtnew.Columns.Add("ffo_receiptfilename", GetType(String))   '30
                 dtnew.Columns.Add("sourcecdid", GetType(Long))              '31
+                dtnew.Columns.Add("receivedbyid", GetType(Long))            '32
+                dtnew.Columns.Add("datereceived", GetType(DateTime))        '33
 
                 For i As Integer = 0 To dt.Rows.Count - 1
                     rw = dtnew.NewRow
@@ -324,6 +326,8 @@ tonton:
                     rw(29) = dt.Rows(i).Item("ffo_requestid")
                     rw(30) = dt.Rows(i).Item("ffo_receiptfilename")
                     rw(31) = 0
+                    rw(32) = dt.Rows(i).Item("receivedbyid")
+                    rw(33) = dt.Rows(i).Item("datereceived")
 
                     dtnew.Rows.Add(rw)
                 Next
