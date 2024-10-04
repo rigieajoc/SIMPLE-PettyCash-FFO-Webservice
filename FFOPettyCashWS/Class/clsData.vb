@@ -3,7 +3,7 @@
 Public Class clsData
 
     Public mainStrPar As New List(Of String)
-    Public mainStrVal As New List(Of String)
+    Public mainStrVal As New List(Of Object)
 #Region "Method - Query"
 
     Public Shared Function getGenericData(ByVal sop As Integer, ByVal employeeid As Integer, ByVal code As String) As DataTable

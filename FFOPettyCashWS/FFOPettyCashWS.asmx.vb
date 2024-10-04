@@ -102,6 +102,71 @@ tonton:
     End Function
 
     <WebMethod()> _
+    Public Function Download_Report(ByVal rtoken As String, ByVal code As myTransactCode, ByVal branchid As String,
+                                    ByVal startdate As Date, ByVal enddate As Date, ByVal salesmanid As Integer,
+                                    ByVal json_customer As String) As String
+        Dim dt As New DataTable
+        Dim dtcustomer As New DataTable
+        Dim convertedvalue As String = ""
+        Dim traceline As String = ""
+        Dim moddescription As String = ""
+        Dim employeeid, operation, soperation As Integer
+        Dim arr As Array
+
+        Try
+            arr = clsUtility.ValidateToken(rtoken)    'validate token
+            employeeid = arr(0).ToString 'employeeid
+            If arr(1).ToString = False Then  'is valid
+                convertedvalue = arr(2).ToString 'error message
+                GoTo tonton
+            End If
+
+            traceline = "1"
+            Dim dtcode As New DataTable
+            dtcode = clsData.getGenericData(1, 0, code)
+            If dtcode.Rows.Count > 0 Then
+                moddescription = dtcode.Rows(0).Item("module")
+                operation = dtcode.Rows(0).Item("operation")
+                soperation = dtcode.Rows(0).Item("soperation")
+            Else
+                convertedvalue = "ERROR: Incorrect code."
+                GoTo tonton
+            End If
+
+            dtcustomer = clsUtility.ConvertJsonToDatatable(json_customer)
+
+            Dim r As New clsData
+            r.mainStrPar.Add("operation")       '0
+            r.mainStrVal.Add(operation)         '0
+            r.mainStrPar.Add("soperation")      '1
+            r.mainStrVal.Add(soperation)        '1
+            r.mainStrPar.Add("employeeid")      '2
+            r.mainStrVal.Add(salesmanid)        '2
+            r.mainStrPar.Add("branchid")        '3
+            r.mainStrVal.Add(branchid)          '3
+            r.mainStrPar.Add("startdate")       '4
+            r.mainStrVal.Add(startdate)         '4
+            r.mainStrPar.Add("enddate")         '5
+            r.mainStrVal.Add(enddate)           '5
+            r.mainStrPar.Add("customerlist")    '6
+            r.mainStrVal.Add(dtcustomer)        '6
+
+            dt = r.DownloadData
+
+            traceline = "0"
+            convertedvalue = clsUtility.ConvertDatatableToJson(dt)
+
+        Catch ex As Exception
+            convertedvalue = "ERROR" & traceline & ": " & ex.Message
+        End Try
+
+tonton:
+        clsUtility.SaveLog(code, moddescription, employeeid, convertedvalue)
+
+        Return convertedvalue
+    End Function
+
+    <WebMethod()> _
     Public Function Upload_Data(ByVal rtoken As String, ByVal code As myTransactCode, ByVal jsondata As String) As Models.Response
         Dim dtconvert As New DataTable
         Dim dtwrap As New DataTable
