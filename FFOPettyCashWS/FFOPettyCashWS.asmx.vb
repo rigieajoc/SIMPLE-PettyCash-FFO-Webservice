@@ -12,23 +12,23 @@ Imports System.IO
 Public Class Service1
     Inherits System.Web.Services.WebService
 
-    Enum myTransactCode
-        CGetEmployees = 11
-        CGetExpenseType = 12
-        CGetFundType = 13
-        CGetVendor = 14
-        CGetBranch = 15
-        CGetVendorCategory = 16
-        CGetHBItems = 17
-        CGetOHBItems = 18
-        CGetVendorSearch = 19
+    'Enum myTransactCode
+    '    CGetEmployees = 11
+    '    CGetExpenseType = 12
+    '    CGetFundType = 13
+    '    CGetVendor = 14
+    '    CGetBranch = 15
+    '    CGetVendorCategory = 16
+    '    CGetHBItems = 17
+    '    CGetOHBItems = 18
+    '    CGetVendorSearch = 19
 
 
-        CPostFundReleased = 21
-        CPostExpenseLiquidation = 22
-        CPostExpenseType = 23
-        CPostVendor = 24
-    End Enum
+    '    CPostFundReleased = 21
+    '    CPostExpenseLiquidation = 22
+    '    CPostExpenseType = 23
+    '    CPostVendor = 24
+    'End Enum
     Enum ResponseCode
         success = 200
         fail = 404
@@ -46,7 +46,7 @@ Public Class Service1
     End Function
 
     <WebMethod()> _
-    Public Function Download_Data(ByVal rtoken As String, ByVal code As myTransactCode, ByVal branchid As String) As String
+    Public Function Download_Data(ByVal rtoken As String, ByVal code As String, ByVal branchid As String) As String
         Dim dt As New DataTable
         Dim convertedvalue As String = ""
         Dim traceline As String = ""
@@ -102,7 +102,7 @@ tonton:
     End Function
 
     <WebMethod()> _
-    Public Function Download_Report(ByVal rtoken As String, ByVal code As myTransactCode, ByVal branchid As String,
+    Public Function Download_Report(ByVal rtoken As String, ByVal code As String, ByVal branchid As String,
                                     ByVal startdate As Date, ByVal enddate As Date, ByVal salesmanid As Integer,
                                     ByVal json_customer As String) As String
         Dim dt As New DataTable
@@ -167,7 +167,7 @@ tonton:
     End Function
 
     <WebMethod()> _
-    Public Function Upload_Data(ByVal rtoken As String, ByVal code As myTransactCode, ByVal jsondata As String) As Models.Response
+    Public Function Upload_Data(ByVal rtoken As String, ByVal code As String, ByVal jsondata As String) As Models.Response
         Dim dtconvert As New DataTable
         Dim dtwrap As New DataTable
         Dim convertedvalue = "", retvalarry As String = "", errval As String = "", errmsg As String = ""
@@ -190,22 +190,22 @@ tonton:
                 traceline = "2"
                 dtwrap = WrapDataTable(dtconvert, code)
                 If dtwrap.Rows.Count > 0 Then
-                    If code = myTransactCode.CPostFundReleased Then 'post_fundreleased
+                    If code = "21" Then 'post_fundreleased
                         traceline = "3"
                         retvalarry = clsData.UploadFundReleased(employeeid, dtwrap)
                         moddescription = "Fund Released"
 
-                    ElseIf code = myTransactCode.CPostExpenseLiquidation Then    'post_expenseliquidation
+                    ElseIf code = "22" Then    'post_expenseliquidation
                         traceline = "7"
                         retvalarry = clsData.UploadExpenseLiquidation(employeeid, dtwrap)
                         moddescription = "Expense Report"
 
-                    ElseIf code = myTransactCode.CPostExpenseType Then  'post_expensetype
+                    ElseIf code = "23" Then  'post_expensetype
                         traceline = "6"
                         retvalarry = clsData.UploadExpenseType(employeeid, dtwrap)
                         moddescription = "Expense Type"
 
-                    ElseIf code = myTransactCode.CPostVendor Then   'post_vendor
+                    ElseIf code = "24" Then   'post_vendor
                         traceline = "5"
                         retvalarry = clsData.UploadVendor(employeeid, dtwrap)
                         moddescription = "Vendor"
@@ -237,12 +237,12 @@ tonton:
     End Function
 
 #Region "Method - Wrap"
-    Private Function WrapDataTable(ByVal dt As DataTable, ByVal transtype As myTransactCode) As DataTable
+    Private Function WrapDataTable(ByVal dt As DataTable, ByVal transtype As String) As DataTable
         Dim dtnew As New DataTable
         Dim rw As DataRow
 
         Try
-            If transtype = myTransactCode.CPostFundReleased Then        'post_fundreleased (cashflow_pc)
+            If transtype = "21" Then        'post_fundreleased (cashflow_pc)
                 dtnew.Columns.Add("cashinid", GetType(Long))            '0
                 dtnew.Columns.Add("transno", GetType(Long))             '1
                 dtnew.Columns.Add("panelid", GetType(Long))             '2
@@ -320,7 +320,7 @@ tonton:
                     dtnew.Rows.Add(rw)
                 Next
 
-            ElseIf transtype = myTransactCode.CPostExpenseLiquidation Then    'post_expenseliquidation (cashdisbursement_pc)
+            ElseIf transtype = "22" Then    'post_expenseliquidation (cashdisbursement_pc)
                 dtnew.Columns.Add("cdid", GetType(Long))                    '0
                 dtnew.Columns.Add("cdno", GetType(Long))                    '1
                 dtnew.Columns.Add("cddate", GetType(DateTime))              '2
@@ -392,7 +392,7 @@ tonton:
                     dtnew.Rows.Add(rw)
                 Next
 
-            ElseIf transtype = myTransactCode.CPostVendor Then  'post_vendor
+            ElseIf transtype = "24" Then  'post_vendor
                 dtnew.Columns.Add("vendorid", GetType(Long))            '0
                 dtnew.Columns.Add("vendorname", GetType(String))        '1
                 dtnew.Columns.Add("address", GetType(String))           '2
@@ -446,7 +446,7 @@ tonton:
                     dtnew.Rows.Add(rw)
                 Next
 
-            ElseIf transtype = myTransactCode.CPostExpenseType Then 'post_expensetype
+            ElseIf transtype = "23" Then 'post_expensetype
                 dtnew.Columns.Add("expenseid", GetType(Long))           '0
                 dtnew.Columns.Add("expensetype", GetType(String))       '1
                 dtnew.Columns.Add("isdefault", GetType(Boolean))        '2
